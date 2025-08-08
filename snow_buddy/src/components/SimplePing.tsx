@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { MapPin, Loader2, Users, ChevronRight } from 'lucide-react';
 import { supabase } from '../services/supabase';
 import { locationService } from '../services/locationService';
 import type { Friend } from '../types';
@@ -125,18 +126,12 @@ export function SimplePing({ groupCode, username, currentUserId, onSelectFriend 
         >
           {isSharing ? (
             <>
-              <svg className="animate-spin w-6 h-6" fill="none" viewBox="0 0 24 24">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-              </svg>
+              <Loader2 className="animate-spin w-6 h-6" />
               <span>Sharing Location...</span>
             </>
           ) : (
             <>
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
+              <MapPin className="w-6 h-6" />
               <span>📍 Ping My Location</span>
             </>
           )}
@@ -160,9 +155,7 @@ export function SimplePing({ groupCode, username, currentUserId, onSelectFriend 
             {friends.filter(f => f.id !== currentUserId).length === 0 ? (
               <div className="px-4 py-8 text-center">
                 <div className="text-gray-400 mb-3">
-                  <svg className="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
-                  </svg>
+                  <Users className="w-12 h-12 mx-auto" />
                 </div>
                 <h3 className="text-lg font-medium text-gray-900 mb-1">No friends found</h3>
                 <p className="text-gray-500 text-sm">
@@ -198,9 +191,7 @@ export function SimplePing({ groupCode, username, currentUserId, onSelectFriend 
                     </div>
 
                     <div className="text-blue-500">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
+                      <ChevronRight className="w-5 h-5" />
                     </div>
                   </div>
                 </button>
