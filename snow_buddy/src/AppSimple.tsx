@@ -5,7 +5,7 @@ import { SimplePing } from './components/SimplePing';
 import { CompassToFriend } from './components/CompassToFriend';
 import type { Friend, GroupState } from './types';
 
-// Simplified SnowPing App - No realtime dependencies
+// Simplified SnowPing App - No realtime dependencies - Force rebuild v2
 
 function AppSimple() {
   // Core state
