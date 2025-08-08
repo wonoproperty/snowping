@@ -5,6 +5,8 @@ import { SimplePing } from './components/SimplePing';
 import { CompassToFriend } from './components/CompassToFriend';
 import type { Friend, GroupState } from './types';
 
+// Simplified SnowPing App - No realtime dependencies
+
 function AppSimple() {
   // Core state
   const [permissionsGranted, setPermissionsGranted] = useState(false);
