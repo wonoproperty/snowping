@@ -1,6 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    font-variation-settings: normal;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.025em;
+  }
+}
+
+@layer components {
+  /* Glass morphism utility */
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/10;
+  }
+  
+  /* Glass dark variant */
+  .glass-dark {
+    @apply bg-black/20 backdrop-blur-md border border-white/5;
+  }
+  
+  /* Primary button styles */
+  .btn-primary {
+    @apply bg-emerald-500 hover:bg-emerald-400 text-white font-medium px-6 py-3 rounded-2xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-400/60 active:scale-95;
+  }
+  
+  /* Secondary button styles */
+  .btn-secondary {
+    @apply glass text-white font-medium px-6 py-3 rounded-2xl transition-all duration-200 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-sky-400/60 active:scale-95;
+  }
+  
+  /* Danger button styles */
+  .btn-danger {
+    @apply bg-rose-500 hover:bg-rose-400 text-white font-medium px-6 py-3 rounded-2xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rose-400/60 active:scale-95;
+  }
+  
+  /* Meet button styles */
+  .btn-meet {
+    @apply bg-indigo-500 hover:bg-indigo-400 text-white font-medium px-6 py-3 rounded-2xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-400/60 active:scale-95;
+  }
+  
+  /* Floating action button */
+  .fab {
+    @apply w-14 h-14 rounded-full shadow-lg shadow-black/30 transition-all duration-200 active:scale-95 focus:outline-none focus:ring-2 focus:ring-sky-400/60;
+  }
+  
+  /* Status indicators */
+  .status-online {
+    @apply bg-emerald-400;
+  }
+  
+  .status-offline {
+    @apply bg-slate-500;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .transition-all,
+  .animate-slide-up,
+  .animate-slide-down,
+  .animate-fade-in {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
 
 /* Custom styles for the map markers */
 .custom-marker {
