@@ -11,7 +11,6 @@ interface SimplePingProps {
 }
 
 export function SimplePing({ groupCode, username, currentUserId, onSelectFriend }: SimplePingProps) {
-  const [myLocation, setMyLocation] = useState<Location | null>(null);
   const [friends, setFriends] = useState<Friend[]>([]);
   const [isSharing, setIsSharing] = useState(false);
   const [lastPingTime, setLastPingTime] = useState<number | null>(null);
@@ -58,7 +57,6 @@ export function SimplePing({ groupCode, username, currentUserId, onSelectFriend 
     
     try {
       const location = await locationService.getCurrentLocation();
-      setMyLocation(location);
 
       // Save to Supabase
       const { error } = await supabase

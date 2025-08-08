@@ -1,5 +1,4 @@
 import type { Location, PermissionState } from '../types';
-import { realtimeService } from './supabase';
 
 export class LocationService {
   private watchId: number | null = null;
@@ -129,16 +128,8 @@ export class LocationService {
       (position) => {
         const now = Date.now();
         
-        // Throttle broadcasts to every 5 seconds and only when tab is visible
-        if (this.isVisible && now - this.lastBroadcastTime >= this.broadcastInterval) {
-          this.lastBroadcastTime = now;
-          
-          // Broadcast location via Supabase
-          realtimeService.broadcastLocation(
-            position.coords.latitude,
-            position.coords.longitude
-          );
-        }
+        // Location updated - we'll handle broadcasting in the SimplePing component
+        // This service is now just for getting location data
       },
       (error) => {
         console.error('Location tracking error:', error);
