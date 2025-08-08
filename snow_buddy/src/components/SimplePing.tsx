@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../services/supabase';
 import { locationService } from '../services/locationService';
-import type { Friend, Location } from '../types';
+import type { Friend } from '../types';
 
 interface SimplePingProps {
   groupCode: string;

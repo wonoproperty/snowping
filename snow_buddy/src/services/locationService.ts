@@ -2,8 +2,7 @@ import type { Location, PermissionState } from '../types';
 
 export class LocationService {
   private watchId: number | null = null;
-  private lastBroadcastTime = 0;
-  private broadcastInterval = 5000; // 5 seconds
+  // Removed unused broadcast timing variables
   private isVisible = true;
 
   constructor() {
@@ -125,9 +124,7 @@ export class LocationService {
     }
 
     this.watchId = navigator.geolocation.watchPosition(
-      (position) => {
-        const now = Date.now();
-        
+      () => {
         // Location updated - we'll handle broadcasting in the SimplePing component
         // This service is now just for getting location data
       },
