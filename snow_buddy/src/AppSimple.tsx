@@ -6,7 +6,6 @@ import { MapChrome } from './components/MapChrome';
 import { ActionBar } from './components/ActionBar';
 import { RosterDrawer } from './components/RosterDrawer';
 import { CompassPanel } from './components/CompassPanel';
-import { SimplePing } from './components/SimplePing';
 import { MapView } from './components/MapView';
 import { supabase } from './services/supabase';
 import { locationService } from './services/locationService';
@@ -142,6 +141,20 @@ function AppSimple() {
     setSelectedFriend(null);
     setShowCompass(false);
   };
+
+  // Get location when permissions are granted
+  useEffect(() => {
+    if (permissionsGranted && !myLocation) {
+      locationService.getCurrentLocation()
+        .then(location => {
+          setMyLocation(location);
+        })
+        .catch(error => {
+          console.log('Could not get initial location:', error);
+          // Don't show error - map will still work
+        });
+    }
+  }, [permissionsGranted, myLocation]);
 
   // Show permission gate first
   if (!permissionsGranted) {

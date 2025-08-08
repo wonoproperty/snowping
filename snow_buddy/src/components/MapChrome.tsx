@@ -7,8 +7,8 @@ interface MapChromeProps {
 export function MapChrome({ children }: MapChromeProps) {
   return (
     <div className="relative h-screen w-full bg-gradient-to-br from-slate-950 to-slate-900">
-      {/* Map container with safe area padding */}
-      <div className="absolute inset-0 pt-safe-top pb-safe-bottom pl-safe-left pr-safe-right">
+      {/* Map container with proper padding for header and action buttons */}
+      <div className="absolute inset-0 pt-24 pb-24 px-4 md:pt-20 md:pb-4 md:pr-20">
         {children}
       </div>
     </div>

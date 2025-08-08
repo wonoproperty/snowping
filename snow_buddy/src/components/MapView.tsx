@@ -118,18 +118,17 @@ export function MapView({
 
   }, [friends, myLocation, currentUserId, selectedFriendId, isMapLoaded, onFriendClick]);
 
-  if (!isMapLoaded && !myLocation) {
+  // Only show loading if map is not initialized yet
+  if (!isMapLoaded) {
     return (
-      <div className="h-full bg-gray-100 flex items-center justify-center">
+      <div className="h-full bg-gradient-to-br from-slate-950 to-slate-900 flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-            </svg>
+          <div className="w-16 h-16 glass rounded-3xl flex items-center justify-center mx-auto mb-4">
+            <div className="w-8 h-8 border-2 border-sky-400 border-t-transparent rounded-full animate-spin"></div>
           </div>
-          <h3 className="text-lg font-medium text-gray-900 mb-2">Finding your location...</h3>
-          <p className="text-gray-500 text-sm">
-            Enable location services to see the map and track friends
+          <h3 className="text-lg font-semibold text-white mb-2">Loading map...</h3>
+          <p className="text-slate-400 text-sm">
+            Preparing your SnowPing experience
           </p>
         </div>
       </div>
